@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyGame</title>
+</head>
+<body onload="pageLoaded()">
+    <canvas width="640" height="480" id="testcanvas" style="border: 1px solid black;">
+        Your browser does not support HTML5 Canvas. Please shift to a new browser.
+    </canvas>
+
+    <img src="floor0.jpg" id="chao">
+    
+    <script type="text/javascript">
+        //This function will be called once the function loads completely
+        function pageLoaded() {
+            //Get a handle to the canvas object
+            var canvas = document.getElementById("testcanvas");
+
+            //Get the 2D context for this  canvas
+            var context = canvas.getContext("2d");
+
+            //FILLED RECTANGLES 
+            //Draw a solid square with width of 100 pixels at (200,10)
+            context.fillRect(200,10,100,100);
+            //Draw a solid square with width of 90 pixels and height of 30 pixels at ()
+            context.fillRect(50,70,90,30);
+
+            // STROKED RECTANGLES 
+            //Draw a rectangular outline with width and height of 50 pixels at (110, 10)
+            context.strokeRect(110, 10, 50, 50);
+
+            //Draw a rectangular outline with width and height of 50 pixels at (30, 10)
+            context.strokeRect(30, 10, 50, 50);
+
+            //CLEARING RECTANGLES 
+            //Clear a retangle with width of 30 pixels and height of 20 pixels at (210, 20)
+            context.clearRect(210, 20, 30, 20);
+
+            //Clear a retangle with width of 30 pixels and height of 20 pixels at (260, 20)
+            context.clearRect(260, 20, 30, 20);
+
+            //Drawing Complex Shapes in the canvas
+            //Draw a filled triangle
+            context.beginPath();
+            context.moveTo(10, 20); //Starts drawing at 10, 120
+            context.lineTo(10,150);  
+            context.lineTo(110, 150);
+            context.closePath();
+            context.fill();
+
+            //Draw a stroked triangle
+            context.beginPath();
+            context.moveTo(140, 160);  //Starst drawing at 140, 160
+            context.lineTo(140, 220);
+            context.lineTo(40, 190);
+            context.closePath();
+            context.stroke();
+
+            //Draw a more complex set of lines
+            context.beginPath();
+            context.moveTo(10, 200);
+            context.lineTo(10, 70 );
+            context.lineTo(130, 20);
+            context.lineTo(40, 230);
+            context.closePath();
+            context.stroke();
+
+
+            //Drawing Arcs and circles 
+            context.beginPath();
+            // Draw an arc at (400, 50) with radius 40 from 0 to 180 degrees, anticlockwise)
+            context.arc(100, 300, 30, 0, Math.PI, true);
+            context.closePath();
+            context.stroke();
+
+            //Draw a full circle
+            context.beginPath();
+            context.arc(100, 300, 30, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fill();
+
+            // Draw a three-quarter arc
+            context.beginPath();
+            // Draw an arc at (400, 100) with radius 25 from 0 to 270 degrees, clockwise
+            // (3/2*PI radians = 270 degrees)
+            context.arc(200, 300, 25, 0, 3 / 2 * Math.PI, false);
+            context.stroke();
+
+            //DRAWING TEXT
+            context.fillText("Este é um exemplo...", 330,40);
+            context.strokeText("Este é outro...", 330, 90)
+            
+            context.font = "10pt Sans Serif";
+            context.fillText("Este é mais um exemplo", 330, 130);
+
+
+            //FILL STYLES AND COLORS
+            //Set color to red
+            context.fillStyle = "red";
+            //Draw a red filled rectangle
+            context.fillRect(310, 160, 100, 50);
+
+            //Set stroke color green
+            context.strokeStyle = "green";
+            //Draw a green stroked rectangle
+            context.strokeRect(310, 240, 100, 50);
+
+            //Set fill color to yellow using rgb()
+            context.fillStyle = "rgb(255, 255, 0)"; 
+            //Draw a yellow filled rectangle
+            context.fillRect(420, 160, 100, 50);
+
+            //Set fill color to green with an alpha of 0.6
+            context.fillStyle = "rgba(0, 255, 255, 0.6)";
+            //Draw a semi-transparent green filled rectangle
+            context.fillRect(300,100, 80, 40);
+            
+
+            //IMAGES 
+            //Get a handle to the Image object
+            var floor = document.getElementById("chao");
+            var pattern = context.createPattern(floor, "repeat");
+
+            //Set fill style to newly created pattern
+            context.fillStyle = pattern;
+            //Draw a pattern filled rectangle
+            context.fillRect(0, 0, 130, 70);
+            
+
+
+        }
+            
+
+    </script>
+    
+</body>
+</html>
