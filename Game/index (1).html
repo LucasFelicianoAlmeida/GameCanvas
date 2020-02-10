@@ -11,7 +11,8 @@
         Your browser does not support HTML5 Canvas. Please shift to a new browser.
     </canvas>
 
-    <img src="floor0.jpg" id="chao">
+    <img src="./img/floor0.jpg" id="chao">
+    <img src="img/sprite-sheets.png" id="sprit">
     
     <script type="text/javascript">
         //This function will be called once the function loads completely
@@ -128,6 +129,17 @@
             context.fillStyle = pattern;
             //Draw a pattern filled rectangle
             context.fillRect(0, 0, 130, 70);
+
+            var image = new Image();
+            image.src = "./img/sprite-sheets";
+
+            
+
+            var imagem = document.getElementById("sprit")
+                context.drawImage(imagem, 0, 0,450,245);
+
+
+
             
 
 
